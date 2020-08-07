@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 interface PageHeaderProps {
   title: string; // se for um parametro opcional, colocar ?:
+  description?: string;
 }
 
 /* usando typescript definindo o componente PageHeader como um Componente Funcional
@@ -15,6 +16,7 @@ interface PageHeaderProps {
 const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
   title,
   children,
+  description,
 }) => {
   return (
     <header className="page-header">
@@ -27,6 +29,8 @@ const PageHeader: React.FunctionComponent<PageHeaderProps> = ({
 
       <div className="header-content">
         <strong>{title}</strong>
+        {description && <p>{description}</p>}
+
         {children}
       </div>
     </header>
